@@ -42,6 +42,51 @@ SELECT nome, edicao FROM livros ORDER BY 2;
 SELECT nome, edicao FROM livros ORDER BY 1; 
 SELECT nome, edicao FROM livros ORDER BY 1, 2; 
 
+-- selecionar da tabela pessoa as colunas nome e sobrenome ordenando por nome
+SELECT nome, sobrenome FROM pessoas ORDER BY nome;
+-- selecionar da tabela pessoa as colunas sobrenome e nome ordenando por sobrenome
+SELECT sobrenome, nome FROM pessoas ORDER BY sobrenome;
+-- selecionar da tabela pessoa as colunas sobrenome e nome ordenando por nome DESC 
+SELECT sobrenome, nome FROM pessoas ORDER BY nome DESC;
+-- selecionar da tebela pessoas nome, sobrenome e cpf ordenado por nome em oredem crescente e cpf em ordem decrescente
+SELECT nome, sobrenome, cpf FROM pessoas ORDER BY nome, cpf DESC;
+
+-- selecionar as colunas nome e edicao da tabela livros, filtrando por edicao com valor 1
+SELECT nome, edicao FROM livros
+WHERE edicao = 1;
+-- selecionar as colunas nome e preco da tabela livros dos que possuem edicao com valor 1
+SELECT nome, preco FROM livros 
+WHERE edicao = 1;
+-- selecionar nome, edicao e preco da tabela livros filtrando por nome 'Harry Potter e o cálice de fogo'
+SELECT nome, edicao, preco FROM livros 
+WHERE nome = 'Harry Potter e o cálice de fogo';
+-- selecionar as colunas nome e edicao da tabela livros dos que possuem edicao >= 5
+SELECT nome, edicao FROM livros 
+WHERE edicao >= 5;
+-- selecionar da tabela pessoas a coluna nome aonde o nome seja igual a 'Miguel'
+SELECT nome, sobrenome FROM pessoas 
+WHERE nome = 'Miguel';
+
+-- CASOS EXPECIAIS
+
+-- selecionar todas as colunas da tabela livros filtrando por por valor
+SELECT * FROM livros 
+WHERE round(preco, 2) = 40.34;
+
+-- seleciona todas as colunas da tabela livros filtrando por data
+SELECT * FROM livros 
+WHERE dt_expedicao = '2011-11-20';
+-- maior que a data
+SELECT * FROM livros 
+WHERE dt_expedicao > '2011-11-20';
+-- buscando so pelo ano 
+SELECT * FROM livros 
+WHERE date_format(dt_expedicao, '%Y') = 2011;
+
+
+
+
+
 
 
 
