@@ -38,4 +38,37 @@ SELECT * FROM pedidos WHERE qtd_pedida < 5;
 -- e agora >= 5
 SELECT * FROM pedidos WHERE NOT (qtd_pedida < 5);
 
+-- DESAFIOS 
+-- selecionar da tabela livros que a qtd_estoque seja maior que 100 e a edicao seja 1 ou 4
+SELECT * 
+FROM livros 
+WHERE qtd_estoque > 100 
+AND (edicao = 1 OR edicao = 4);
+-- selecionar da tabela livros os livros que a edicao nao seja menor ou igual a 5 ou a quantidade em estoque nao seja maior que 100
+SELECT *
+FROM livros
+WHERE NOT (edicao <= 5 AND qtd_estoque > 100);
+-- selecionar da tabela livros todos os livros que a quantidade de estoque nao seja >= 100 e data de espedicao seja maior que 2015
+SELECT * 
+FROM livros 
+WHERE NOT (qtd_estoque >= 100 OR date_format(dt_expedicao, '%Y') > 2015);
+
+-- LIKE
+-- Digamos que temos que fazer uma busca de todos os nomes que começam com "ca" entao 
+-- usamos o LIKE  e passamos o 'ca%' com isso estamos dizendo que queremos todos os nomes que comecem com 'ca' mais nao 
+-- nos emportampos com o que vem depois. Exemplos:
+SELECT * FROM livros WHERE nome LIKE 'O nome %';
+SELECT * FROM livros WHERE nome LIKE '% vento';
+SELECT * FROM livros WHERE nome LIKE 'O%ger';
+SELECT * FROM livros WHERE nome LIKE 'O%nome%vento';
+-- selecionar todos os livros que contem 'arry'
+SELECT * FROM livros WHERE nome LIKE '%arry %';
+-- selecionar todos os livros que terminem com a palavra 'silencio'
+SELECT * FROM livros WHERE nome LIKE '% silencio';
+-- usando o % ele me traz na consulta a quantidade de caracteres existentes sem limites, agora se eu usar um _ ele me traz um 
+-- caractere para cada _ que eu usar por exemplo:
+-- selecionar da tabela livros os livros que comecem com um caracter e depois nao me importa o que vem
+SELECT * FROM livros WHERE nome LIKE '_ %'; -- um exemplo de nome que esse comando traz é 'O Temor do Sabio' e 'A lenda'
+-- selecionar da tabela livros todos os livros que comecem com tres caracteres e depois disso nao importa o que vem
+SELECT * FROM livros WHERE nome LIKE '___ %';
 

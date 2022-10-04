@@ -80,4 +80,3 @@ SELECT * FROM livros
 WHERE date_format(dt_expedicao, '%Y') = 2011; 
 -- mais opçoes para buscas usando o date_format() no README
 
-
