@@ -49,7 +49,38 @@ FROM livros;
 -- selecionar da tabela pessoas as colunas nome e data nascimento filtrando so o ano e alterando o nome das colunas
 SELECT nome AS 'Nome', date_format(data_nascimento, '%Y') AS 'Ano Nascimento' FROM pessoas;
 
+-- OPERCOES MATEMATICAS EM SQL
+-- EXEMPLOS
+SELECT 
+    nome,
+    qtd_estoque,
+    preco,
+    preco + preco AS '2 * preco',
+    round(preco * preco, 2) AS 'preco aredondado',
+    qtd_estoque * preco AS 'total',
+    round(qtd_estoque * preco, 2) AS 'total arredondado',
+    round(preco + preco + 10 * 2, 2) AS 'preco arredondado mais uma constante',
+    10 % 2 AS 'resto da divisao 10 por 2',
+    11 % 2 AS 'resto da divisao por 2, numeros impares',
+    preco % 2 AS 'preco dividido por 2',
+    round(preco % 2, 2) AS 'preco dividido por 2 arredondado'
+FROM livros;    
+-- selecionar da tabela livros o nome a quantidade em estoque e multiplicar por 5 o preco arredondando pra duas casas decimais 
+SELECT nome, qtd_estoque , round(preco * 5, 2) AS 'preco * 5', preco FROM livros;  
 
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
