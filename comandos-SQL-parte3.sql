@@ -68,19 +68,3 @@ FROM livros;
 -- selecionar da tabela livros o nome a quantidade em estoque e multiplicar por 5 o preco arredondando pra duas casas decimais 
 SELECT nome, qtd_estoque , round(preco * 5, 2) AS 'preco * 5', preco FROM livros;  
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
