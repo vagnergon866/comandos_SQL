@@ -73,6 +73,3 @@ WHERE EXISTS(SELECT ped.id_pessoa FROM pedidos ped
 WHERE ped.id_pessoa = pes.id_pessoa 
 AND pes.funcionario = 1);
 
-
-
-
