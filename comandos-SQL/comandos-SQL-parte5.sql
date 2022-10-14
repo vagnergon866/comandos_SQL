@@ -73,3 +73,17 @@ WHERE EXISTS(SELECT ped.id_pessoa FROM pedidos ped
 WHERE ped.id_pessoa = pes.id_pessoa 
 AND pes.funcionario = 1);
 
+-- SubConsultas com ANY
+-- selecionar os livros que possuem algum pedido aonde a quantidade pedida seja maior ou igual a 5
+SELECT * FROM livros liv WHERE id_livro = ANY(SELECT ped.id_livro FROM pedidos ped WHERE ped.qtd_pedida >= 5);
+-- poderia substituir o ANY por IN que daria o mesmo resultado (isso em uma situacao de igualdade)
+SELECT * FROM livros liv WHERE id_livro IN(SELECT ped.id_livro FROM pedidos ped WHERE ped.qtd_pedida >= 5);
+-- selecionar livros que a quantidade em estoque seja menor ou igual que duas vezes a quantidade pedida
+SELECT * FROM livros liv WHERE id_livro <= ANY(SELECT ped.qtd_pedida * 2 FROM pedidos ped WHERE ped.qtd_pedida >= 5);
+-- selecionar da tabela pessoas todas as pessoas que fizeram pedidos iguais ou maiores que 5
+SELECT * FROM pessoas pes WHERE id_pessoa = ANY(SELECT ped.id_pessoa FROM pedidos ped WHERE ped.qtd_pedida >= 5);
+
+-- SubConsultas com ALL
+-- selecionar da tabela pessoa todas as pessoas que fizeram pedidos iguais ou maiores que 10
+SELECT * FROM pessoas pes WHERE pes.id_pessoa = ALL(SELECT ped.id_pessoa FROM pedidos ped WHERE ped.qtd_pedida >= 10);
+
