@@ -64,8 +64,8 @@ SELECT nome, edicao, min(preco) AS 'preco' FROM livros GROUP BY edicao;
 SELECT nome, edicao, avg(preco) AS 'preco' FROM livros GROUP BY edicao; 
 -- valor minimo, valor maximo e media de precos 
 SELECT nome, edicao, preco,
-	min(preco) AS 'valor minimo',
-	max(preco) AS 'valor maximo',
+    min(preco) AS 'valor minimo',
+    max(preco) AS 'valor maximo',
     avg(preco) AS 'media de preco' 
 FROM livros GROUP BY edicao;
 -- selecionar da tabela pedidos os pedidos de uma pessoa para saber o minimo o maximo e a media que ela ja comprou na loja
@@ -78,12 +78,12 @@ FROM pedidos GROUP BY id_pessoa;
 -- GROUP BY com SUM, COUNT e HAVING
 -- verificar da tabela livros quantos livros de cada edicao eu tenho e somar a quantidade de livros em estoque
 SELECT edicao,
-	count(nome) AS 'quantos livros tenho',
-	sum(qtd_estoque) AS 'quantidade total por edicao'
+    count(nome) AS 'quantos livros tenho',
+    sum(qtd_estoque) AS 'quantidade total por edicao'
 FROM livros GROUP BY edicao;
 -- verificar da tabela pedidos quantos pedidos tive de um livro e quantos foram vendidos
 SELECT id_livro,
-	count(qtd_pedida) AS 'quantidade de pedidos',
+    count(qtd_pedida) AS 'quantidade de pedidos',
     sum(qtd_pedida) AS 'quantidade de vendas'
 FROM pedidos GROUP BY id_livro;
 -- selecionar da tabela livros o nome do livro a edicao e verificar a quantidade de livros pra cada edicao
