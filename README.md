@@ -1,4 +1,4 @@
-# curso_SQL
+# comandos_SQL
 
 Filtrar Dados com Datas usando o `date_format()`
 
